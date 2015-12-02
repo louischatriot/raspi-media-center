@@ -1,5 +1,8 @@
 {
   "name": "raspi-media-center",
   "description": "A Raspberry Pi-based media center",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "dependencies": {
+    "omxcontrol": "0.0.1"
+  }
 }
