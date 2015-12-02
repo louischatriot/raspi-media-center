@@ -2,3 +2,7 @@ extends layout
 
 block content
   h3 List of playable videos
+  ul
+    each file in files
+      li
+        a(href="/web/play/#{file.id}") #{file.name}
