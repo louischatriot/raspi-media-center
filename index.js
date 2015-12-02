@@ -5,6 +5,12 @@ var http = require('http')
   ;
 
 function globalHandler (req, res) {
+  if (req.url === "/favicon.ico") {
+    res.writeHead(200);
+    return res.end();
+  }
+
+
   omxcontrol.start('media/a.avi');
 
   res.writeHead(200);
