@@ -3,6 +3,8 @@
   "description": "A Raspberry Pi-based media center",
   "version": "0.1.0",
   "dependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
     "omxcontrol": "0.0.1"
   }
 }
