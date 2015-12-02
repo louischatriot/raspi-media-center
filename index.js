@@ -5,6 +5,8 @@ var http = require('http')
   ;
 
 function globalHandler (req, res) {
+  omxcontrol.start('media/a.avi');
+
   res.writeHead(200);
   return res.end('HW\n');
 }
@@ -18,7 +20,6 @@ function globalHandler (req, res) {
   //console.log(err);
 //});
 
-omxcontrol.start('media/a.avi');
 
 
 server.listen(8888);
