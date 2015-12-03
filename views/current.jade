@@ -1,5 +1,8 @@
 extends layout
 
+block head
+  title Remote
+
 block content
   h3 Currently playing #{currentDuration}
   if currentlyPlaying
@@ -18,8 +21,22 @@ block content
     button.btn#small-forward &gt;
     button.btn#big-forward &gt; &gt;
 
+    br
+    br
+    br
+
+    div#position
+
+    br
+    br
+    br
+
+    input#positionSlider(type="range",value="0",min="0",max="1000",style="width: 100%;")
+
   else
     h5 Nothing
+
+  div#duration(style="display: none;") #{currentDuration}
 
 block specificJs
   script(type="text/javascript", src="/assets/js/current.js")

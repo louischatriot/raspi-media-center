@@ -1,6 +1,7 @@
 var express = require('express')
   , app = express()
   , server = require('http').Server(app)
+  , bodyParser = require('body-parser')
   , webapp = express.Router()
   , api = express.Router()
   , omxcontrol = require('omxcontrol')
@@ -10,6 +11,9 @@ var express = require('express')
   ;
 
 app.enable('view cache');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 // Don't try to serve a favicon
@@ -24,6 +28,7 @@ app.use(function (req, res, next) {
 // API
 api.get('/pause', apiRoutes.pause);
 api.get('/stop', apiRoutes.stop);
+api.post('/position', apiRoutes.setPosition);
 api.get('/small-forward', apiRoutes.smallForward);
 api.get('/small-backward', apiRoutes.smallBackward);
 api.get('/big-forward', apiRoutes.bigForward);
