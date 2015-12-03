@@ -19,7 +19,6 @@ app.use(function (req, res, next) {
 
 // API
 api.get('/start', function (req, res) {
-  omxcontrol.start('media/a.avi');
   return res.status(200).json({ hello: 'world' });
 });
 
@@ -28,6 +27,7 @@ api.get('/start', function (req, res) {
 // WEBAPP
 webapp.get('/list/:id?', web.list);
 webapp.get('/play/:id', web.play);
+webapp.get('/current', web.current);
 
 
 

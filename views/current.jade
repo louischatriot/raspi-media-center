@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h3 Currently playing
+  h5
+    if currentlyPlaying
+      |#{currentlyPlaying}
+    else
+      |Nothing
