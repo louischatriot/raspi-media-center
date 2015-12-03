@@ -23,6 +23,8 @@ app.use(function (req, res, next) {
 
 // API
 api.get('/pause', apiRoutes.pause);
+api.get('/stop', apiRoutes.stop);
+api.get('/small-forward', apiRoutes.smallForward);
 
 
 
