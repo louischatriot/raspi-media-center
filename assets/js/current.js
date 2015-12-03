@@ -35,7 +35,6 @@ function updatePositionText() {
 
 $(document).ready(function () {
   duration = parseInt($('#duration').html(), 10);
-  duration = Math.floor(duration / 1000000);   // In s
   position = 0;
   updatePositionText();
 
