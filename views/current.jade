@@ -5,7 +5,7 @@ block head
 
 block content
   h3 Currently playing
-  if !currentlyPlaying
+  if currentlyPlaying
     h5 #{currentlyPlaying}
 
     a#pause(href="#",style="margin-right: 30px;")
