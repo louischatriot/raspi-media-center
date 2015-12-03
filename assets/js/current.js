@@ -26,9 +26,22 @@ $('#big-backward').on('click', function () {
 });
 
 
+function niceTimeFormat (s) {
+  var h = Math.floor(s / 3600);
+  s = s - 3600 * h;
+  var m = Math.floor(s / 60);
+  s = s - 60 * m;
+  var msg = '';
 
-function updatePositionText() {
-  var msg = position + ' / ' + duration;
+  if (h > 0 ) { msg += h + ':'; }
+  if (m > 0 ) { msg += m + ':'; }
+  msg += s;
+  return msg;
+}
+
+
+function updatePositionText () {
+  var msg = niceTimeFormat(position) + ' / ' + niceTimeFormat(duration);
   $('#position').html(msg);
 }
 
