@@ -25,6 +25,9 @@ app.use(function (req, res, next) {
 api.get('/pause', apiRoutes.pause);
 api.get('/stop', apiRoutes.stop);
 api.get('/small-forward', apiRoutes.smallForward);
+api.get('/small-backward', apiRoutes.smallBackward);
+api.get('/big-forward', apiRoutes.bigForward);
+api.get('/big-backward', apiRoutes.bigBackward);
 
 
 

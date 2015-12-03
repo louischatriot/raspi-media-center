@@ -10,3 +10,16 @@ $('#stop').on('click', function () {
 $('#small-forward').on('click', function () {
   $.ajax({ type: 'GET', url: '/api/small-forward' });
 });
+
+$('#small-backward').on('click', function () {
+  $.ajax({ type: 'GET', url: '/api/small-backward' });
+});
+
+$('#big-forward').on('click', function () {
+  $.ajax({ type: 'GET', url: '/api/big-forward' });
+});
+
+$('#big-backward').on('click', function () {
+  $.ajax({ type: 'GET', url: '/api/big-backward' });
+});
+
