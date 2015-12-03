@@ -5,7 +5,8 @@ var express = require('express')
   , api = express.Router()
   , omxcontrol = require('omxcontrol')
   , config = require('./lib/config')
-  , web = require('./lib/web')
+  , webRoutes = require('./lib/web')
+  , apiRoutes = require('./lib/api')
   ;
 
 // Don't try to serve a favicon
@@ -18,16 +19,14 @@ app.use(function (req, res, next) {
 
 
 // API
-api.get('/start', function (req, res) {
-  return res.status(200).json({ hello: 'world' });
-});
+api.get('/pause', apiRoutes.pause);
 
 
 
 // WEBAPP
-webapp.get('/list/:id?', web.list);
-webapp.get('/play/:id', web.play);
-webapp.get('/current', web.current);
+webapp.get('/list/:id?', webRoutes.list);
+webapp.get('/play/:id', webRoutes.play);
+webapp.get('/current', webRoutes.current);
 
 
 

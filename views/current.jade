@@ -2,8 +2,12 @@ extends layout
 
 block content
   h3 Currently playing
-  h5
-    if currentlyPlaying
-      |#{currentlyPlaying}
-    else
-      |Nothing
+  if currentlyPlaying
+    h5 #{currentlyPlaying}
+    a#pause(href="#")
+      i.icon-pause
+  else
+    h5 Nothing
+
+block specificJs
+  script(type="text/javascript", src="/assets/js/current.js")
