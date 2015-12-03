@@ -2,7 +2,16 @@ extends layout
 
 block content
   h3 List of playable videos
-  ul
+  h6 #{currentDir}
+
+  // Horrible CSS hack but acceptable given the scope of the project
+  ul(style="list-style-type: none;")
+    each dir in dirs
+      li
+        i.icon-folder-close(style="position: relative; left: -10px;")
+        a(href="/web/list/#{dir.id}") #{dir.name}
+
+  ul(style="position: relative; left: 10px;")
     each file in files
       li
         a(href="/web/play/#{file.id}") #{file.name}

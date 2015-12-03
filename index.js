@@ -26,7 +26,7 @@ api.get('/start', function (req, res) {
 
 
 // WEBAPP
-webapp.get('/list', web.list);
+webapp.get('/list/:id?', web.list);
 webapp.get('/play/:id', web.play);
 
 
