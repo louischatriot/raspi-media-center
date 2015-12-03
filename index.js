@@ -9,6 +9,9 @@ var express = require('express')
   , apiRoutes = require('./lib/api')
   ;
 
+app.enable('view cache');
+
+
 // Don't try to serve a favicon
 app.use(function (req, res, next) {
   if (req.url === "/favicon.ico") {
