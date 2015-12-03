@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  h3 Currently playing
+  h3 Currently playing #{currentDuration}
   if currentlyPlaying
     h5 #{currentlyPlaying}
     a#pause(href="#")
