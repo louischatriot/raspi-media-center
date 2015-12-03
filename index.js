@@ -53,4 +53,16 @@ app.get('/assets/*', function (req, res) {
 app.get('/', function (req, res) { return res.redirect(302, '/web/list'); });
 
 
-server.listen(config.serverPort);
+// Compile both templates then launch
+// Because Raspberry Pi is way too slow on compiling, it's a pain to test
+console.log("Express app defined");
+app.render('list.jade', function () {
+  console.log("Compiled list.jade");
+  app.render('current.jade', function () {
+    console.log("Compiled current.jade");
+
+    server.listen(config.serverPort, function () {
+      console.log("Server launched, ready to accept connections");
+    });
+  });
+});
