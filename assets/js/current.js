@@ -64,6 +64,14 @@ $(document).ready(function () {
         position = Math.floor(jqxhr.responseJSON.position / 1000000);
         updatePositionText();
       }
+
+      if (jqxhr.responseJSON.position) {
+        $('#playingSomething').css('display', 'block');
+        $('#playingNothing').css('display', 'none');
+      } else {
+        $('#playingSomething').css('display', 'none');
+        $('#playingNothing').css('display', 'block');
+      }
     });
-  }, 800);
+  }, 400);
 });

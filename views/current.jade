@@ -5,7 +5,7 @@ block head
 
 block content
   h3 Currently playing
-  if currentlyPlaying
+  div#playingSomething(style="display: none;")
     h5 #{currentlyPlaying}
 
     a#pause(href="#",style="margin-right: 30px;")
@@ -24,7 +24,7 @@ block content
 
     input#positionSlider(type="range",value="0",min="0",max="1000",style="width: 100%;")
 
-  else
+  div#playingNothing(style="display: none;")
     h5 Nothing
 
   div#duration(style="display: none;") #{currentDuration}
