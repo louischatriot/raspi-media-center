@@ -32,12 +32,14 @@ function updatePositionText () {
 
 
 $(document).ready(function () {
+  var changingSlider = false;
   duration = parseInt($('#duration').html(), 10);
   position = 0;
   updatePositionText();
 
   // Update HUD in real time
   $('#positionSlider').on('input', function (e) {
+    changingSlider = true;
     var v = parseInt($('#positionSlider').val(), 10);
     position = Math.floor(duration * v / 1000);
     updatePositionText();
@@ -45,6 +47,7 @@ $(document).ready(function () {
 
   // Once drag is finished, update final position and server
   $('#positionSlider').on('change', function (e) {
+    changingSlider = false;
     var v = parseInt($('#positionSlider').val(), 10);
     position = Math.floor(duration * v / 1000);
     updatePositionText();
@@ -56,7 +59,11 @@ $(document).ready(function () {
   // Poll server regularly to get updates
   setInterval(function () {
     $.ajax({ type: 'GET', url: '/api/status' }).complete(function (jqxhr) {
-      console.log(jqxhr.responseJSON);
+      if (!changingSlider) {
+        duration = Math.floor(jqxhr.responseJSON.duration / 1000000);
+        position = Math.floor(jqxhr.responseJSON.position / 1000000);
+        updatePositionText();
+      }
     });
   }, 800);
 });
