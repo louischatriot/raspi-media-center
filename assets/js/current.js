@@ -27,6 +27,7 @@ function niceTimeFormat (s) {
 
 function updatePositionText () {
   var msg = niceTimeFormat(position) + ' / ' + niceTimeFormat(duration);
+  $('#positionSlider').val(Math.floor(1000 * position / duration));
   $('#position').html(msg);
 }
 
