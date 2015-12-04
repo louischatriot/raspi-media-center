@@ -28,6 +28,7 @@ app.use(function (req, res, next) {
 // API
 api.get('/pause', apiRoutes.pause);
 api.get('/stop', apiRoutes.stop);
+api.get('/status', apiRoutes.getStatus);
 api.post('/position', apiRoutes.setPosition);
 
 
