@@ -47,7 +47,9 @@ $(document).ready(function () {
 
   // Once drag is finished, update final position and server
   $('#positionSlider').on('change', function (e) {
-    changingSlider = false;
+    setTimeout(function () {   // Prevent small glitch
+      changingSlider = false;
+    }, 3000);
     var v = parseInt($('#positionSlider').val(), 10);
     position = Math.floor(duration * v / 1000);
     updatePositionText();
