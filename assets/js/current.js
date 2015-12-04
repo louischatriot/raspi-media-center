@@ -52,4 +52,11 @@ $(document).ready(function () {
        , dataType: 'json', contentType:"application/json; charset=utf-8"
        , data: JSON.stringify({ position: position }) });
   });
+
+  // Poll server regularly to get updates
+  setInterval(function () {
+    $.ajax({ type: 'GET', url: '/api/status' }).complete(function (jqxhr) {
+      console.log(jqxhr.responseJSON);
+    });
+  }, 800);
 });
