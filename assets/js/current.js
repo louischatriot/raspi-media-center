@@ -27,7 +27,6 @@ function niceTimeFormat (s) {
 
 function updatePositionText () {
   var msg = niceTimeFormat(position) + ' / ' + niceTimeFormat(duration);
-  $('#positionSlider').val(Math.floor(1000 * position / duration));
   $('#position').html(msg);
 }
 
@@ -63,6 +62,7 @@ $(document).ready(function () {
       if (!changingSlider) {
         duration = Math.floor(jqxhr.responseJSON.duration / 1000000);
         position = Math.floor(jqxhr.responseJSON.position / 1000000);
+        $('#positionSlider').val(Math.floor(1000 * position / duration));
         updatePositionText();
       }
 
