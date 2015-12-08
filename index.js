@@ -36,6 +36,8 @@ api.post('/position', apiRoutes.setPosition);
 webapp.get('/list/:id?', webRoutes.list);
 webapp.get('/play/:id', webRoutes.play);
 webapp.get('/current', webRoutes.current);
+webapp.get('/shutdown', webRoutes.shutdown);
+webapp.get('/shutdown/confirm', webRoutes.shutdownConfirm);
 
 
 
