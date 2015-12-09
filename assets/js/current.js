@@ -61,6 +61,12 @@ $(document).ready(function () {
   // Poll server regularly to get updates
   setInterval(function () {
     $.ajax({ type: 'GET', url: '/api/status' }).complete(function (jqxhr) {
+      if (jqxhr.status !== 200 && jqxhr.status !== 304) {
+        $('#playingSomething').css('display', 'none');
+        $('#playingNothing').css('display', 'block');
+        return;
+      }
+
       if (!changingSlider) {
         duration = Math.floor(jqxhr.responseJSON.duration / 1000000);
         position = Math.floor(jqxhr.responseJSON.position / 1000000);
