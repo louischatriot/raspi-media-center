@@ -4,6 +4,19 @@
 
 OMXPLAYER_DBUS_ADDR="/tmp/omxplayerdbus.${USER}"
 OMXPLAYER_DBUS_PID="/tmp/omxplayerdbus.${USER}.pid"
+
+if [ ! -f $OMXPLAYER_DBUS_ADDR ];
+then
+   echo "omxplayer not launched"
+   exit 0
+fi
+
+if [ ! -f $OMXPLAYER_DBUS_PID ];
+then
+   echo "omxplayer not launched"
+   exit 0
+fi
+
 export DBUS_SESSION_BUS_ADDRESS=`cat $OMXPLAYER_DBUS_ADDR`
 export DBUS_SESSION_BUS_PID=`cat $OMXPLAYER_DBUS_PID`
 
