@@ -20,7 +20,13 @@ fi
 export DBUS_SESSION_BUS_ADDRESS=`cat $OMXPLAYER_DBUS_ADDR`
 export DBUS_SESSION_BUS_PID=`cat $OMXPLAYER_DBUS_PID`
 
-[ -z "$DBUS_SESSION_BUS_ADDRESS" ] && { echo "Must have DBUS_SESSION_BUS_ADDRESS" >&2; exit 1; }
+# Try to use Dbus to communicate while outputting nothing to stdout or stderr
+# If it fails stop script
+if ! dbus-send --print-reply=literal --session --reply-timeout=500 --dest=org.mpris.MediaPlayer2.omxplayer /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Duration > /dev/null 2>&1
+then
+  echo "omxplayer not launched"
+  exit 0
+fi
 
 case $1 in
 status)
