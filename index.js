@@ -6,6 +6,7 @@ var express = require('express')
   , api = express.Router()
   , omxcontrol = require('omxcontrol')
   , config = require('./lib/config')
+  , upload = require('multer')({ dest: config.uploadTempDirectory })
   , webRoutes = require('./lib/web')
   , apiRoutes = require('./lib/api')
   ;
@@ -30,6 +31,7 @@ api.get('/pause', apiRoutes.pause);
 api.get('/stop', apiRoutes.stop);
 api.get('/status', apiRoutes.getStatus);
 api.post('/position', apiRoutes.setPosition);
+api.post('/upload/:id', upload.single('file'), apiRoutes.upload);
 
 
 // WEBAPP

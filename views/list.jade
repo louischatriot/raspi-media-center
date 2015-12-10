@@ -1,5 +1,9 @@
 extends layout
 
+block head
+  link(href="/assets/css/list.css", rel="stylesheet")
+
+
 block content
   h3 List of playable videos
   h5 #{currentDir}
@@ -15,3 +19,18 @@ block content
     each file in files
       li
         a(href="/web/play/#{file.id}") #{file.name}
+
+  form#upload-form(style="margin-top: 40px;")
+    input#file(type="file", name="file", style="display: none;")
+    div.input-append
+      input#file-name(type="text", placeholder="Click to select file")
+      a.btn#launch-upload Upload
+
+    div#progress-bar
+      div#progress-bar-inner
+
+  div#current-dir-base64(style="display: none;") #{currentDirBase64}
+
+
+block specificJs
+  script(type="text/javascript", src="/assets/js/list.js")
