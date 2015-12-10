@@ -32,6 +32,7 @@ api.get('/stop', apiRoutes.stop);
 api.get('/status', apiRoutes.getStatus);
 api.post('/position', apiRoutes.setPosition);
 api.post('/upload/:id', upload.single('file'), apiRoutes.upload);
+api.get('/delete/:id', apiRoutes.deleteMovie);
 
 
 // WEBAPP

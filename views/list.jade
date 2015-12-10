@@ -19,6 +19,8 @@ block content
     each file in files
       li
         a(href="/web/play/#{file.id}") #{file.name}
+        |&nbsp;-&nbsp;
+        a.delete(data-name="#{file.name}", data-id="#{file.id}", style="color: darkred;", href="#") delete
 
   form#upload-form(style="margin-top: 40px;")
     input#file(type="file", name="file", style="display: none;")
