@@ -1,0 +1,14 @@
+[Service]
+ExecStart=/usr/local/bin/node /home/pi/Projects/raspi-media-center/index.js
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=rmc
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/Projects/raspi-media-center
+Environment=NODE_END=prod
+
+[Install]
+WantedBy=multi-user.target
+After=home.mount
