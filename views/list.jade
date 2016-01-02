@@ -19,6 +19,9 @@ block content
     each file in files
       li
         a(href="/web/play/#{file.id}") #{file.name}
+        if file.srt === true
+          |&nbsp;
+          span.label srt
         |&nbsp;-&nbsp;
         a.delete(data-name="#{file.name}", data-id="#{file.id}", style="color: darkred;", href="#") delete
 
