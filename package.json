@@ -7,6 +7,7 @@
     "atob": "^1.1.2",
     "body-parser": "^1.14.1",
     "btoa": "^1.1.2",
+    "diskspace": "^1.0.2",
     "express": "^4.13.3",
     "jade": "^1.11.0",
     "multer": "^1.1.0",
