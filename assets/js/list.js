@@ -10,6 +10,19 @@ $('a.delete').on('click', function (e) {
   });
 });
 
+// Create a directory
+$('#create-dir').on('click', function () {
+  var currentDir = atob($('#current-dir-base64').html())
+    , dirToCreate = currentDir + '/' + $('#dir-name').val()
+
+  $.ajax({ type: 'GET', url: '/api/create-dir/' + btoa(dirToCreate) }).complete(function () {
+    document.location.reload();
+  });
+});
+$('#dir-name').on('keypress', function (e) {
+  if (e.keyCode === 13) { $('#create-dir').trigger('click'); }
+});
+
 // Manage upload
 $('#file').on('change', function () {
   $('#file-name').val($(this).val().replace('C:\\fakepath\\', ''));
