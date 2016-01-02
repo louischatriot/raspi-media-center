@@ -14,6 +14,8 @@ block content
       li
         i.icon-folder-close(style="position: relative; left: -10px;")
         a(href="/web/list/#{dir.id}") #{dir.name}
+        |&nbsp;-&nbsp;
+        a.delete(data-name="#{dir.name}", data-id="#{dir.id}", style="color: darkred;", href="#") delete
 
   ul(style="position: relative; left: 10px;")
     each file in files

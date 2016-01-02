@@ -12,6 +12,7 @@
     "jade": "^1.11.0",
     "multer": "^1.1.0",
     "nedb": "^1.5.0",
-    "omxcontrol": "0.0.1"
+    "omxcontrol": "0.0.1",
+    "rimraf": "^2.5.0"
   }
 }
